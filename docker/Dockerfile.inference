@@ -1,0 +1,11 @@
+FROM 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference:2.12.1-cpu
+
+RUN pip install flask tensorflow
+
+WORKDIR /app
+COPY app/inference.py .
+COPY app/model-1.keras .
+
+EXPOSE 8080
+
+CMD ["python", "inference.py"]
