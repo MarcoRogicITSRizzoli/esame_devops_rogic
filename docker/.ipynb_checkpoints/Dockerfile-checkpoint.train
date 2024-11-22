@@ -1,0 +1,7 @@
+FROM 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-training:2.12.0-cpu-py310 
+
+RUN pip install numpy pandas scikit-learn matplotlib tensorflow keras
+
+ADD module/train.py /opt/ml/code/train.py
+
+ENV SAGEMAKER_PROGRAM train.py
